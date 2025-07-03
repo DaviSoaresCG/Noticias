@@ -102,8 +102,8 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(209, 213, 219, 0.25); /* border-gray-300/25 */
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25); /* border-gray-300/25 */
 }
 
 .note-info {
@@ -142,7 +142,7 @@ html {
 }
 
 .note-text {
-  margin-top: 1.25rem;
+  margin-top: 10px
 }
 
 @-ms-viewport {

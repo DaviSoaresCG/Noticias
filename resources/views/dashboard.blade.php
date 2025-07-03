@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="col">
-        @empty($noticias)
-            <p>Sem noticias para o usuario {{ Auth::user()->name() }}</p>
+        @if($noticias->isEmpty())
+            <p>Sem noticias para o usuario {{ Auth::user()->name }}</p>
         @else
             @foreach ($noticias as $noticia)
                 @include('noticias.noticia');
             @endforeach
-        @endempty
+        @endif
 
     </div>
 @endsection

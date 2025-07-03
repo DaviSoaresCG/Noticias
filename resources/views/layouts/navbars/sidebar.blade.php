@@ -81,7 +81,7 @@
                 </div>
             </li>
 
-            <li @if ($pageSlug == 'icons') class="active " @endif>
+            {{-- <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
                     <p>{{ _('Icons') }}</p>
@@ -116,13 +116,13 @@
                     <i class="tim-icons icon-world"></i>
                     <p>{{ _('RTL Support') }}</p>
                 </a>
-            </li>
-            <li class=" {{ $pageSlug == 'upgrade' ? 'active' : '' }} bg-info">
+            </li> --}}
+            {{-- <li class=" {{ $pageSlug == 'upgrade' ? 'active' : '' }} bg-info">
                 <a href="{{ route('pages.upgrade') }}">
                     <i class="tim-icons icon-spaceship"></i>
                     <p>{{ _('Upgrade to PRO') }}</p>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>
