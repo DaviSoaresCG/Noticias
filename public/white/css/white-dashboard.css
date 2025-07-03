@@ -33,7 +33,7 @@
   --gray-dark: #32325d;
   --light: #ced4da;
   --lighter: #e9ecef;
-  --primary: #e14eca;
+  --primary: #5e72e4;
   --secondary: #f4f5f7;
   --success: #00f2c3;
   --info: #1d8cf8;
@@ -69,16 +69,32 @@ html {
   -webkit-tap-highlight-color: rgba(34, 42, 66, 0);
 }
 
+
+
 /* noticias */
 .note-container {
   width: 100%;
   height: 16rem; /* equivalente a h-64 */
   padding: 1rem 1.25rem;
-  background-color: #ace8c3; /* bg-gray-900 */
   border-radius: 1rem; /* rounded-2xl */
   margin-bottom: 1rem;
   color: white;
   box-sizing: border-box;
+  border: 2px solid black;
+  box-shadow: 5px 10px black;
+
+}
+
+.ler-mais{
+  color: blue;
+  
+}
+.ler-mais:hover{
+  color: blue;
+}
+
+.ler-mais:link{
+  color: blue;
 }
 
 .note-header {
@@ -253,25 +269,23 @@ sup {
 }
 
 a {
-  color: #e14eca;
+  color: #5e72e4;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #c221a9;
   text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
-  color: inherit;
+
   text-decoration: none;
 }
 
 a:not([href]):not([tabindex]):hover,
 a:not([href]):not([tabindex]):focus {
-  color: inherit;
   text-decoration: none;
 }
 

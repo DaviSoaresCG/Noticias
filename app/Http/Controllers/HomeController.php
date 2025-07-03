@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Noticia;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,9 @@ class HomeController extends Controller
     {
 
         $noticias = Noticia::where('user_id', Auth::id())->get();
+        foreach($noticias as $noticia){
+            $noticia->content = Str::words($noticia->content, 100);
+        }
         return view('dashboard', compact('noticias'));
     }
 }

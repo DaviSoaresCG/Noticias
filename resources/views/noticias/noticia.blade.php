@@ -8,8 +8,8 @@
             </p>
             @if ($noticia->created_at != $noticia->updated_at)
                 <p>
-                    Modificado em <strong>{{ date('d/m/Y', strtotime($noticia->created_at)) }}</strong> às
-                    <strong>{{ date('H:i:s', strtotime($noticia->created_at)) }}</strong>
+                    Modificado em <strong>{{ date('d/m/Y', strtotime($noticia->updated_at)) }}</strong> às
+                    <strong>{{ date('H:i:s', strtotime($noticia->updated_at)) }}</strong>
                 </p>
             @endif
         </div>
@@ -35,6 +35,6 @@
         </div>
     </div>
     <div class="note-text">
-        <p>{{$noticia->content}}</p>
+        <p>{{$noticia->content}} <a href="#" class="">Ler mais</a></p>
     </div>
 </section>
