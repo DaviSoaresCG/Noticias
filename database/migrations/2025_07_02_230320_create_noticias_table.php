@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('noticias', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('title');
-            $table->string('content');
+            $table->mediumText('content');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
