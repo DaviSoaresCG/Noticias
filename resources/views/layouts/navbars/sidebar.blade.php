@@ -13,12 +13,31 @@
             </li>
             <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
-                    <i class="fab fa-laravel" ></i>
+                    <i class="tim-icons icon-pencil" ></i>
                     <span class="nav-link-text" >{{ __('Cadastros') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 
                 <div class="collapse show" id="laravel-examples">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug == 'profile') class="active " @endif>
+                            <a href="{{ route('profile.edit')  }}">
+                                <i class="tim-icons icon-single-02"></i>
+                                <p>{{ _('Usuários') }}</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug == 'users') class="active " @endif>
+                            <a href="{{ route('user.index')  }}">
+                                <i class="tim-icons icon-paper"></i>
+                                <p>{{ _('Notícias') }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                
+
+                {{-- <div class="collapse show" id="laravel-examples">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug == 'profile') class="active " @endif>
                             <a href="{{ route('profile.edit')  }}">
@@ -33,8 +52,35 @@
                             </a>
                         </li>
                     </ul>
+                </div> --}}
+            </li>
+
+            {{-- gerenciamento --}}
+            <li>
+                <a data-toggle="collapse" href="#gerenciamento" aria-expanded="true">
+                    <i class="tim-icons icon-settings-gear-63" ></i>
+                    <span class="nav-link-text" >{{ __('Gerenciamento') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse show" id="gerenciamento">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug == 'profile') class="active " @endif>
+                            <a href="{{ route('profile.edit')  }}">
+                                <i class="tim-icons icon-single-02"></i>
+                                <p>{{ _('Usuários') }}</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug == 'users') class="active " @endif>
+                            <a href="{{ route('user.index')  }}">
+                                <i class="tim-icons icon-paper"></i>
+                                <p>{{ _('Notícias') }}</p>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </li>
+
             <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
