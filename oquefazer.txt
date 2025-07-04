@@ -1,0 +1,4 @@
+04/07/2025
+Proximas coisas a se fazer: 
+- Funcionar o botão de excluir na pagina de gerenciamento de usuarios
+- Página de cadastro de usuario e noticia funcionarem

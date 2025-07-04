@@ -43,6 +43,12 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                         <a class="dropdown-item" href="{{ route('profile.edit', ['id' => $user->id]) }}">Edit</a>
+                                                        {{-- <a class="dropdown-item text-danger" href="{{ route('user.destroy', ['user' => $user->id]) }}">Delete</a> --}}
+                                                        <form action="{{route('user.destroy', ['user' => $user->id])}}" method="post">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="dropdown-item btn btn-link">Delete</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </td>
