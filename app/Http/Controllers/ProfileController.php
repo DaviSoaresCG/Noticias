@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ProfileRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\PasswordRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProfileController extends Controller
 {
@@ -13,20 +17,25 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('profile.edit');
+        $user = User::findOrFail($id);
+        return view('profile.edit', compact('user'));
     }
 
-    /**
-     * Update the profile
-     *
-     * @param  \App\Http\Requests\ProfileRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function update(ProfileRequest $request)
+    
+    public function update(Request $request)
     {
-        auth()->user()->update($request->all());
+        $request->validate([
+            'id' => 'required',
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . Auth::id()
+        ]);
+
+        $user = User::findOrFail($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
 
         return back()->withStatus(__('Profile successfully updated.'));
     }
@@ -39,7 +48,16 @@ class ProfileController extends Controller
      */
     public function password(PasswordRequest $request)
     {
-        auth()->user()->update(['password' => Hash::make($request->get('password'))]);
+        $request->validate([
+            'id' => 'required',
+            'old_password' => 'required|current_password',
+            'password' => 'required',
+            'password_confimation' => 'required|same:password'
+        ]);
+
+        $user = User::findOrFail($request->id);
+        $user->password = $request->password;
+        // auth()->user()->update(['password' => Hash::make($request->get('password'))]);
 
         return back()->withPasswordStatus(__('Password successfully updated.'));
     }

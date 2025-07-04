@@ -77,11 +77,11 @@ html {
   height: 16rem; /* equivalente a h-64 */
   padding: 1rem 1.25rem;
   border-radius: 1rem; /* rounded-2xl */
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: white;
   box-sizing: border-box;
   border: 2px solid black;
-  box-shadow: 5px 10px black;
+  box-shadow: 5px 8px black;
 
 }
 
@@ -109,7 +109,6 @@ html {
 .note-info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   justify-content: center;
   align-items: flex-start;
 }

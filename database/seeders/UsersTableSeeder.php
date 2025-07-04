@@ -1,6 +1,7 @@
 <?php
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +15,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
+
+        // User::factory(30)->create();
         DB::table('users')->insert([
             'id' => 1,
             'name' => 'Admin Admin',

@@ -1,6 +1,7 @@
 @extends('layouts.app', ['page' => __('User Profile'), 'pageSlug' => 'profile'])
 
 @section('content')
+@if(!empty($user))
     <div class="row">
         <div class="col-md-8">
             <div class="card">
@@ -13,16 +14,16 @@
                             @method('put')
 
                             @include('alerts.success')
-
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                 <label>{{ _('Name') }}</label>
-                                <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Name') }}" value="{{ old('name', auth()->user()->name) }}">
+                                <input type="hidden" name="id" value="{{$user->id}}">
+                                <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ _('Name') }}" value="{{ old('name', $user->name) }}">
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                 <label>{{ _('Email address') }}</label>
-                                <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
+                                <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Email address') }}" value="{{ old('email', $user->email) }}">
                                 @include('alerts.feedback', ['field' => 'email'])
                             </div>
                     </div>
@@ -44,6 +45,7 @@
                         @include('alerts.success', ['key' => 'password_status'])
 
                         <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
+                            <input type="hidden" name="id" value="{{$user->id}}">
                             <label>{{ __('Current Password') }}</label>
                             <input type="password" name="old_password" class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
                             @include('alerts.feedback', ['field' => 'old_password'])
@@ -103,4 +105,7 @@
             </div>
         </div>
     </div>
+@else
+    <p>Usuario não encontrado, <a href="{{route('home')}}">Clique aqui para voltar</a></p>
+@endif
 @endsection

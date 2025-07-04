@@ -27,10 +27,8 @@ class HomeController extends Controller
     {
 
         $noticias = Noticia::where('user_id', Auth::id())->get();
-        if ($noticias->isNotEmpty()) {
-            foreach ($noticias as $noticia) {
-                $noticia->content = Str::words($noticia->content, 100);
-            }
+        foreach ($noticias as $noticia) {
+            $noticia->content = Str::words($noticia->content, 100);
         }
 
         return view('dashboard', compact('noticias'));
