@@ -29,7 +29,7 @@ class ProfileController extends Controller
         $request->validate([
             'id' => 'required',
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . Auth::id()
+            'email' => 'required|email|unique:users,email,' . $request->id
         ]);
 
         $user = User::findOrFail($request->id);
@@ -42,21 +42,16 @@ class ProfileController extends Controller
 
     /**
      * Change the password
-     *
-     * @param  \App\Http\Requests\PasswordRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
      */
     public function password(PasswordRequest $request)
     {
-        $request->validate([
-            'id' => 'required',
-            'old_password' => 'required|current_password',
-            'password' => 'required',
-            'password_confimation' => 'required|same:password'
+        // nao preciso fazer a validação aqui, pois o PasswordRequest ja tem a validação
+        
+        $user = User::findOrFail($request->id);
+        $user->update([
+            'password' => Hash::make($request->password)
         ]);
 
-        $user = User::findOrFail($request->id);
-        $user->password = $request->password;
         // auth()->user()->update(['password' => Hash::make($request->get('password'))]);
 
         return back()->withPasswordStatus(__('Password successfully updated.'));
