@@ -46,7 +46,6 @@ class ProfileController extends Controller
     public function password(PasswordRequest $request)
     {
         // nao preciso fazer a validação aqui, pois o PasswordRequest ja tem a validação
-        
         $user = User::findOrFail($request->id);
         $user->update([
             'password' => Hash::make($request->password)

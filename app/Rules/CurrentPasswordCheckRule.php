@@ -2,11 +2,19 @@
 
 namespace App\Rules;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Validation\Rule;
 
 class CurrentPasswordCheckRule implements Rule
 {
+    protected $userId;
+
+    public function __construct($userId)
+    {
+        $this->userId = $userId;
+    }
+
     /**
      * Determine if the validation rule passes.
      *
@@ -16,7 +24,8 @@ class CurrentPasswordCheckRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        return Hash::check($value, auth()->user()->password);
+        $user = User::find($this->userId);
+        return Hash::check($value, $user->password);
     }
 
     /**
