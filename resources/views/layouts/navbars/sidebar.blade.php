@@ -23,13 +23,13 @@
                         <li @if ($pageSlug == 'register_user') class="active " @endif>
                             <a href="{{route('user.create')}}">
                                 <i class="tim-icons icon-single-02"></i>
-                                <p>{{ _('Usuários') }}</p>
+                                <p>{{ _('Novo Usuario') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug == 'users') class="active " @endif>
-                            <a href="#">
+                        <li @if ($pageSlug == 'register_noticia') class="active " @endif>
+                            <a href="{{route('noticia.create')}}">
                                 <i class="tim-icons icon-paper"></i>
-                                <p>{{ _('Notícias') }}</p>
+                                <p>{{ _('Nova Notícia') }}</p>
                             </a>
                         </li>
                     </ul>
@@ -75,12 +75,13 @@
                 </div>
             </li>
 
-            {{-- <li @if ($pageSlug == 'icons') class="active " @endif>
+            <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
                     <p>{{ _('Icons') }}</p>
                 </a>
             </li>
+            {{--
             <li @if ($pageSlug == 'maps') class="active " @endif>
                 <a href="{{ route('pages.maps') }}">
                     <i class="tim-icons icon-pin"></i>

@@ -69,7 +69,30 @@ html {
   -webkit-tap-highlight-color: rgba(34, 42, 66, 0);
 }
 
+/* textarea */
+.text-area{
+  display: block;
+  width: 100%;
+  height: 1000px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.875rem;
+  line-height: 1.428571;
+  color: black;
+  background-color: transparent;
+  background-clip: padding-box;
+  border: 1px solid #cad1d7;
+  border-radius: 0.25rem;
+  box-shadow: none;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
+.text-area:focus{
+  background-color: #ffffff;
+  border-color: #e14eca;
+  transition: all;
+  outline: 0;
+  box-shadow: none, none;
+}
 
 /* noticias */
 .note-container {
@@ -3973,6 +3996,7 @@ input[type="button"].btn-block {
   display: inline-flex;
   margin-right: 1rem;
 }
+
 
 .custom-control-input {
   position: absolute;
