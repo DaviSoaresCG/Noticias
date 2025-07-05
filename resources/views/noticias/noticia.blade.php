@@ -35,6 +35,8 @@
         </div>
     </div>
     <div class="note-text">
-        <p>{{$noticia->content}} <a href="#" class="">Ler mais</a></p>
+        <p>
+            {{$noticia->content}} <a href="{{route('noticia.show', ['noticium' => $noticia->id])}}" class="">Ler mais</a>
+        </p>
     </div>
 </section>

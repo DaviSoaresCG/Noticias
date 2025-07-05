@@ -9,5 +9,5 @@ class Noticia extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['title', 'content', 'user_ud', 'created_at', 'updated_at'];
+    protected $fillable = ['title', 'content', 'user_id', 'created_at', 'updated_at'];
 }

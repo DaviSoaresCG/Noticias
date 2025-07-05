@@ -1,3 +1,4 @@
 04/07/2025
 Proximas coisas a se fazer: 
 - Página de cadastro de usuario e noticia funcionarem
+- Fazer o botao de add user na index de gerenciamento de usuario funcionar

@@ -6,7 +6,6 @@
             <div class="card card-register card-white">
                 <form class="form" method="post" action="{{ route('noticia.store') }}">
                     @csrf
-
                     <div class="card-body">
                         <div class="input-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                             <div class="input-group-prepend">

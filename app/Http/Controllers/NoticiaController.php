@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Noticia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NoticiaController extends Controller
 {
@@ -27,7 +29,19 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validação
+        $request->validate([
+            'title' => 'required|min:3|max:255|string',
+            'content' => 'required|min:3|max:60000|string'
+        ]);
+
+        $noticia = Noticia::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'user_id' => Auth::id()
+        ]);
+
+        return redirect()->route('home');
     }
 
     /**
@@ -35,7 +49,8 @@ class NoticiaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $noticia = Noticia::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
+        return view('noticias.noticia_completa', compact('noticia'));
     }
 
     /**
