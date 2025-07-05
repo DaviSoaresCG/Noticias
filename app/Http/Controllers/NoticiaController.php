@@ -58,7 +58,8 @@ class NoticiaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $noticia = Noticia::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
+        return view('noticias.edit', compact('noticia'));
     }
 
     /**
@@ -66,7 +67,19 @@ class NoticiaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:3',
+            'content' => 'required|min:3|max:60000'
+        ]);
+
+        $noticia = Noticia::findOrFail($id);
+
+        $noticia->update([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
+
+        return redirect()->route('home');
     }
 
     /**
@@ -74,6 +87,12 @@ class NoticiaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $noticia = Noticia::where('user_id', Auth::id())
+            ->where('id', $id)
+            ->firstOrFail();
+        
+        $noticia->delete();
+
+        return redirect()->route('home');
     }
 }

@@ -10,7 +10,7 @@
                                 <h4 class="card-title">Users</h4>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="#" class="btn btn-sm btn-primary">Add user</a>
+                                <a href="{{route('user.create')}}" class="btn btn-sm btn-primary">Add user</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,6 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                         <a class="dropdown-item" href="{{ route('profile.edit', ['id' => $user->id]) }}">Edit</a>
-                                                        {{-- <a class="dropdown-item text-danger" href="{{ route('user.destroy', ['user' => $user->id]) }}">Delete</a> --}}
                                                         <form action="{{route('user.destroy', ['user' => $user->id])}}" method="post">
                                                             @csrf
                                                             @method('delete')
