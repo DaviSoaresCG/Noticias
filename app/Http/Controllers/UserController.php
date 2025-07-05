@@ -26,4 +26,16 @@ class UserController extends Controller
 
         return redirect()->route('user.index');
     }
+
+    public function create()
+    {
+        return view('users.register');
+    }
+
+    public function store(UserRequest $request)
+    {
+        $user = User::create($request->validated());
+
+        return redirect()->route('user.index');
+    }
 }

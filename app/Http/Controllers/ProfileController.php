@@ -23,7 +23,7 @@ class ProfileController extends Controller
         return view('profile.edit', compact('user'));
     }
 
-    
+    // vou utilizar o Request padrão, pois o ProfileRequest dá um erro de lógica, na regra de unique:email
     public function update(Request $request)
     {
         $request->validate([

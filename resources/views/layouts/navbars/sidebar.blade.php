@@ -20,8 +20,8 @@
 
                 <div class="collapse show" id="laravel-examples">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'profile') class="active " @endif>
-                            <a href="#">
+                        <li @if ($pageSlug == 'register_user') class="active " @endif>
+                            <a href="{{route('user.create')}}">
                                 <i class="tim-icons icon-single-02"></i>
                                 <p>{{ _('Usuários') }}</p>
                             </a>
