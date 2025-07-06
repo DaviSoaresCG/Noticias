@@ -41,7 +41,7 @@
     </div>
     <div class="note-text">
         <p>
-            {{$noticia->content}} <a href="{{route('noticia.show', ['noticium' => $noticia->id])}}" class="">Ler mais</a>
+            {{$noticia->content}} <a href="{{route('noticia.show', ['noticium' => $noticia->id])}}" class=" font-weight-bold">Ler mais</a>
         </p>
     </div>
 </section>

@@ -8,6 +8,16 @@
                         <div class="row">
                             <div class="col-8">
                                 <h4 class="card-title">{{$noticia->title}}</h4>
+                                <p class="text-primary font-weight-bold">
+                                    Criado em <strong>{{ date('d/m/Y', strtotime($noticia->created_at)) }}</strong> às
+                                    <strong>{{ date('H:i:s', strtotime($noticia->created_at)) }}</strong>
+                                </p>
+                                @if ($noticia->created_at != $noticia->updated_at)
+                                    <p class="text-primary font-weight-bold">
+                                        Modificado em <strong>{{ date('d/m/Y', strtotime($noticia->updated_at)) }}</strong> às
+                                        <strong>{{ date('H:i:s', strtotime($noticia->updated_at)) }}</strong>
+                                    </p>
+                                @endif
                             </div>
                             <div class="col-4 text-right">
                                 <a href="{{route('home')}}" class="btn btn-sm btn-primary">Voltar</a>
