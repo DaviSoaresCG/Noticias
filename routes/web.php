@@ -41,4 +41,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::put('profile', 'udpdate')->name('profile.update');
 		Route::put('profile/password', 'password')->name('profile.password');
 	});
+
+	Route::fallback(function(){
+		return response()->view('fallback');
+	});
 });
