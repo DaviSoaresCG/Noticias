@@ -17,7 +17,6 @@ class UsersTableSeeder extends Seeder
     {
 
 
-        // User::factory(30)->create();
         DB::table('users')->insert([
             'id' => 1,
             'name' => 'Admin Admin',
@@ -27,5 +26,7 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        User::factory(30)->create();
+
     }
 }

@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::controller(ProfileController::class)->group(function(){
 		Route::get('profile/{id}', 'edit')->name('profile.edit');
-		Route::put('profile', 'udpdate')->name('profile.update');
+		Route::put('profile', 'update')->name('profile.update');
 		Route::put('profile/password', 'password')->name('profile.password');
 	});
 

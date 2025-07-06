@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-round btn-lg">{{ _('Get Started') }}</button>
+                        <button type="submit" class="btn btn-primary btn-round btn-lg">{{ _('Registrar') }}</button>
                     </div>
                 </form>
             </div>
