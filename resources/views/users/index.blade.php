@@ -10,7 +10,7 @@
                                 <h4 class="card-title">Users</h4>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{route('user.create')}}" class="btn btn-sm btn-primary">Add user</a>
+                                <a href="{{route('user.create')}}" class="btn btn-sm btn-primary">Adicionar usuario</a>
                             </div>
                         </div>
                     </div>

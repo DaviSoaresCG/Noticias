@@ -1,6 +1,5 @@
 05/07/2025
 Proximas coisas a se fazer: 
-- Fazer o botão de pesquisar funcionar E aparecer so no dashboard!!!
 - Colocar os botões de voltar em cada página
 - Melhorar as rotas
 - Colocar a data na noticia completa
