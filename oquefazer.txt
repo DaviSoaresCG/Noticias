@@ -1,4 +1,6 @@
-04/07/2025
+05/07/2025
 Proximas coisas a se fazer: 
-- Finalizar o CRUD das noticias
-- Fazer o botão de pesquisar FUNCIONAR e aparecer so no dashboard
+- Fazer o botão de pesquisar funcionar E aparecer so no dashboard!!!
+- Colocar os botões de voltar em cada página
+- Melhorar as rotas
+- Colocar a data na noticia completa

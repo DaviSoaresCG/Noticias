@@ -5,15 +5,31 @@ namespace App\Http\Controllers;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 
 class NoticiaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function search(Request $request)
     {
-        //
+        $request->validate([
+            'search' => 'required|string'
+        ]);
+
+        $noticias = Noticia::where('title', 'LIKE', '%' . $request->search . '%')
+            ->where('user_id',Auth::id())
+            ->get();
+
+        foreach ($noticias as $noticia) {
+                $noticia->content = Str::words($noticia->content, 100);
+            
+        }
+
+
+        return view('dashboard', compact('noticias'));
     }
 
     /**
@@ -90,7 +106,7 @@ class NoticiaController extends Controller
         $noticia = Noticia::where('user_id', Auth::id())
             ->where('id', $id)
             ->firstOrFail();
-        
+
         $noticia->delete();
 
         return redirect()->route('home');
