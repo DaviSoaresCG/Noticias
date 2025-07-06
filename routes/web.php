@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoticiaController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -9,8 +10,14 @@ Route::get('/', function () {
 	return redirect()->route('home');
 });
 
-Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+// Route::middleware(['guest'])->group(function(){
+// 	Auth::routes();
+// });
+Auth::routes([
+	'register' => false,
+	'reset' => false,
+	'verify'=> false
+]);
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
@@ -21,10 +28,17 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('typography', ['as' => 'pages.typography', 'uses' => 'App\Http\Controllers\PageController@typography']);
 	Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
 
+	Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
-	Route::resource('noticia', 'App\Http\Controllers\NoticiaController');
+
+	Route::resource('noticia', NoticiaController::class);
 	Route::get('/noticia', [NoticiaController::class, 'search'])->name('noticia.search');
-	Route::get('profile/{id}', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+
+	Route::controller(ProfileController::class)->group(function(){
+		Route::get('profile/{id}', 'edit')->name('profile.edit');
+		Route::put('profile', 'udpdate')->name('profile.update');
+		Route::put('profile/password', 'password')->name('profile.password');
+	});
 });

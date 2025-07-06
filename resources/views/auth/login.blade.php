@@ -36,16 +36,6 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">{{ _('Get Started') }}</button>
-                    <div class="pull-left">
-                        <h6>
-                            <a href="{{ route('register') }}" class="link footer-link">{{ _('Create Account') }}</a>
-                        </h6>
-                    </div>
-                    <div class="pull-right">
-                        <h6>
-                            <a href="{{ route('password.request') }}" class="link footer-link">{{ _('Forgot password?') }}</a>
-                        </h6>
-                    </div>
                 </div>
             </div>
         </form>
