@@ -21,7 +21,7 @@
             <form action="{{route('noticia.destroy', ['noticium' => $noticia->id])}}" method="post">
                 @csrf
                 @method('delete')
-                <button type="submit">
+                <button type="submit" class="btn btn-sm btn-danger">
                     <i class="tim-icons icon-trash-simple"></i>
             </button>
             </form>                
